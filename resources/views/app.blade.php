@@ -32,6 +32,8 @@
 <body class="container mx-auto mt-10 mb-10 max-w-lg">
   @livewireScripts
   <h1>HelloWorld! This is our LiveWire app!</h1>
+
+  @livewire('create-poll')
 </body>
 
 </html>
