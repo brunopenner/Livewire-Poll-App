@@ -20,6 +20,11 @@ class CreatePoll extends Component
         $this->options[] ='';
     }
 
+    public function removeOption($index) {
+        unset($this->options[$index]);
+        $this->options = array_values($this->options);
+    }
+
     //This is another way to initialise the options array
     // public function mount() {
 
