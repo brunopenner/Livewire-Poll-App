@@ -10,6 +10,9 @@ class Poll extends Model
 {
     use HasFactory;
 
+    //Used for mass assignment, so we can easily fill out the title
+    protected $fillable = ['title'];
+
     public function options(): HasMany {
         return $this->hasMany(Option::class);
     }
