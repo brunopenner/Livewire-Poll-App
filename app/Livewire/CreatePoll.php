@@ -28,13 +28,23 @@ class CreatePoll extends Component
 
     // action for form submission, it is called within the form in create-poll.blade.php
     public function createPoll() {
-        $poll = Poll::create([
-            'title' => $this->title
-        ]);
 
-        foreach($this->options as $optionName) {
-            $poll->options()->create(['name' => $optionName]);
-        }
+        //The following commented out code was replace by the refactored code below, which does not need the $pool variable
+        // $poll = Poll::create([
+        //     'title' => $this->title
+        // ]);
+
+        // foreach($this->options as $optionName) {
+        //     $poll->options()->create(['name' => $optionName]);
+        // }
+
+        Poll::create([
+            'title' => $this->title
+        ])->options()->createMany(
+                collect($this->options)
+                    ->map(fn ($option) => ['name' => $option])
+                    ->all()
+        );
 
         $this->reset(['title', 'options']);
     }
