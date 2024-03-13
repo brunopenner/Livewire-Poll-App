@@ -33,7 +33,15 @@
   @livewireScripts
   <h1>HelloWorld! This is our LiveWire app!</h1>
 
-  @livewire('create-poll')
+  <div>
+    <h2>Create Poll</h2>
+    @livewire('create-poll')
+  </div>
+
+  <div>
+    <h2>Available Polls</h2>
+    @livewire('polls')
+  </div>
 </body>
 
 </html>
