@@ -64,6 +64,8 @@ class CreatePoll extends Component
         );
 
         $this->reset(['title', 'options']);
+
+        $this->emit('pollCreated');
     }
 
     //This is another way to initialise the options array
